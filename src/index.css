@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+h3 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+p {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+nav {
+  background-color: rgb(236, 160, 18);
+  height: 2rem;
+}
+
+a {
+  text-decoration: none;
+  margin: 1rem;
+  color: black;
+}
+
+article {
+  display: flex;
+  margin-top: 4rem;
+  margin-left: 4rem;
+}
+
+.Ingredients {
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr; */
+  border: 1px solid black;
+  margin-right: 1rem;
+  /* width:40rem; */
+  /* grid-auto-rows: auto; */
+}
+
+.YourIngredients {
+  border: 1px solid black;
+}
+
+.ingredient-item {
+  list-style-type: none;
+  margin: 1rem;
+}
+
+.ingredient-list {
+  display: grid;
+  grid-template-columns: 8rem;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 8rem 8rem 8rem 8rem;
+}

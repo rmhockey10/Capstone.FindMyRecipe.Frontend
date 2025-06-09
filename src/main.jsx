@@ -3,14 +3,17 @@ import { BrowserRouter } from "react-router";
 import { ApiProvider } from "./api/ApiContext.jsx";
 import App from "./App.jsx";
 import { AuthProvider } from "./auth/AuthContext.jsx";
+import { CartProvider } from "./SelectedIngredientsContext.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <ApiProvider>
       <BrowserRouter>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </BrowserRouter>
     </ApiProvider>
-  </AuthProvider>,
+  </AuthProvider>
 );
