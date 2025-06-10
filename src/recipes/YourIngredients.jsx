@@ -12,6 +12,7 @@ export default function YourIngredients() {
   const getRecipes = () => {
     const recipes = get(yourIngredients);
     setRecipes(recipes);
+    console.log(yourIngredients);
     navigate("/recipes");
   };
 
