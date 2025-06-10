@@ -1,4 +1,4 @@
-export default function IndividualRecipes() {
+export default function IndividualRecipe() {
   return (
     <>
       <section className="IndividualRecipe">
