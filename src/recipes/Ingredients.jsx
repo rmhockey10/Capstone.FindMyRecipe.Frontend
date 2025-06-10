@@ -1,9 +1,9 @@
 import useQuery from "../api/useQuery";
-import { useYourIngredients } from "../SelectedIngredientsContext";
+import { useRecipes } from "../FindMyRecipeContext";
 
 export default function Ingredients() {
   // const { data: ingredients, loading, error } = useQuery("/books", "books");
-  const { yourIngredients, addToYourIngredients } = useYourIngredients();
+  const { yourIngredients, addToYourIngredients } = useRecipes();
 
   // if (loading || !ingredients) return <p>Loading...</p>;
   // if (error) return <p>Sorry!!! {error}</p>;

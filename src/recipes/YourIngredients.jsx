@@ -1,8 +1,19 @@
-import { useYourIngredients } from "../SelectedIngredientsContext.jsx";
+import { useNavigate } from "react-router";
+import { useRecipes } from "../FindMyRecipeContext.jsx";
 import IngredientItem from "./IngredientItem.jsx";
+import useMutation from "../api/useMutation.jsx";
 
 export default function YourIngredients() {
-  const { yourIngredients } = useYourIngredients();
+  let navigate = useNavigate();
+  const { yourIngredients, setRecipes } = useRecipes();
+
+  const { mutate: get } = useMutation("POST", "/recipes", ["recipes"]);
+
+  const getRecipes = () => {
+    const recipes = get(yourIngredients);
+    setRecipes(recipes);
+    navigate("/recipes");
+  };
 
   return (
     <section className="YourIngredients">
@@ -19,7 +30,7 @@ export default function YourIngredients() {
               <IngredientItem key={ingredient.id} ingredient={ingredient} />
             ))}
           </ul>
-          <button>Search</button>
+          <button onClick={getRecipes}>Find Recipes</button>
         </>
       )}
     </section>
