@@ -13,9 +13,9 @@ export default function YourIngredients() {
     const ingredientNameArray = yourIngredients.map(
       (ingredient) => ingredient.name
     );
-    const recipes = get(ingredientNameArray);
-    console.log(yourIngredients);
-    console.log(ingredientNameArray);
+    const bodyForRecipes = { ingredients: ingredientNameArray };
+    console.log(bodyForRecipes);
+    const recipes = get(bodyForRecipes);
     setRecipes(recipes);
     navigate("/recipes");
   };
