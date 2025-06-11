@@ -10,9 +10,13 @@ export default function YourIngredients() {
   const { mutate: get } = useMutation("POST", "/recipes", ["recipes"]);
 
   const getRecipes = () => {
-    const recipes = get(yourIngredients);
-    setRecipes(recipes);
+    const ingredientNameArray = yourIngredients.map(
+      (ingredient) => ingredient.name
+    );
+    const recipes = get(ingredientNameArray);
     console.log(yourIngredients);
+    console.log(ingredientNameArray);
+    setRecipes(recipes);
     navigate("/recipes");
   };
 
