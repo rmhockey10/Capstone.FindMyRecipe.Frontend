@@ -5,6 +5,7 @@ import Recipes from "./recipes/Recipes.jsx";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Error404 from "./Error404.jsx";
+import DetailsPage from "./recipes/DetailsPage.jsx";
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="/recipes" element={<Recipes />} />
-        {/* <Route path="/recipes/:id" element={<RecipeDetails />} /> */}
+        <Route path="/recipes/:Id" element={<DetailsPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/account" element={<Account />} /> */}
