@@ -2,15 +2,19 @@ import useQuery from "../api/useQuery";
 import { useRecipes } from "../FindMyRecipeContext";
 
 export default function Ingredients() {
-  // const { data: ingredients, loading, error } = useQuery("/ingredients", "ingredients");
+  const {
+    data: ingredients,
+    loading,
+    error,
+  } = useQuery("/ingredients", "ingredients");
   const { yourIngredients, addToYourIngredients } = useRecipes();
 
-  // if (loading || !ingredients) return <p>Loading...</p>;
-  // if (error) return <p>Sorry!!! {error}</p>;
+  if (loading || !ingredients) return <p>Loading...</p>;
+  if (error) return <p>Sorry!!! {error}</p>;
 
   return (
     <ul>
-      {dummyData.map((ingredient) => (
+      {ingredients.map((ingredient) => (
         <IngredientListItem
           key={ingredient.id}
           ingredient={ingredient}
@@ -34,15 +38,15 @@ function IngredientListItem({ ingredient, isChecked, onChange }) {
   );
 }
 
-const dummyData = [
-  { id: 1, name: "Apple" },
-  { id: 2, name: "Banana" },
-  { id: 3, name: "Carrot" },
-  { id: 4, name: "Salmon" },
-  { id: 5, name: "Bread" },
-  { id: 6, name: "Cheese" },
-  { id: 7, name: "Steak" },
-  { id: 8, name: "Broccoli" },
-  { id: 9, name: "Rice" },
-  { id: 10, name: "Yogurt" },
-];
+// const dummyData = [
+//   { id: 1, name: "Apple" },
+//   { id: 2, name: "Banana" },
+//   { id: 3, name: "Carrot" },
+//   { id: 4, name: "Salmon" },
+//   { id: 5, name: "Bread" },
+//   { id: 6, name: "Cheese" },
+//   { id: 7, name: "Steak" },
+//   { id: 8, name: "Broccoli" },
+//   { id: 9, name: "Rice" },
+//   { id: 10, name: "Yogurt" },
+// ];

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 import { useRecipes } from "../FindMyRecipeContext.jsx";
 import IngredientItem from "./IngredientItem.jsx";
 import useMutation from "../api/useMutation.jsx";
@@ -7,16 +8,25 @@ export default function YourIngredients() {
   let navigate = useNavigate();
   const { yourIngredients, setRecipes } = useRecipes();
 
-  const { mutate: get } = useMutation("POST", "/recipes", ["recipes"]);
+  const { mutate: get, data } = useMutation("POST", "/recipes", ["recipes"]);
+  useEffect(() => {
+    if (data) {
+      setRecipes(data);
+      navigate("/recipes");
+    }
+  }, [data]);
 
-  const getRecipes = () => {
+  const getRecipes = async () => {
     const ingredientNameArray = yourIngredients.map(
       (ingredient) => ingredient.name
     );
     const bodyForRecipes = { ingredients: ingredientNameArray };
     console.log(bodyForRecipes);
-    const recipes = get(bodyForRecipes);
-    setRecipes(recipes);
+    const recipes = await get(bodyForRecipes);
+    if (recipes) {
+      setRecipes(data);
+    }
+
     navigate("/recipes");
   };
 
