@@ -3,7 +3,7 @@ import { useRecipes } from "../FindMyRecipeContext";
 
 export default function Recipes() {
   const { recipes } = useRecipes();
-
+  // export on line 4 then becomes a reuseable peiece of HTML (thats what we needed to import)
   return (
     <>
       <article className="Recipes">
