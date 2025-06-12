@@ -1,10 +1,17 @@
-export default function IndividualRecipe() {
+import { Link } from "react-router";
+
+export default function IndividualRecipe({ recipe }) {
   return (
     <>
-      <section className="IndividualRecipe">
-        <h2>Individual Recipe will go here</h2>
-        <p>And you will be able to click on it</p>
-      </section>
+      <Link to={`/recipes/${recipe.id}`} className="recipe-link">
+        <section className="IndividualRecipe">
+          <h2>{recipe.name}</h2>
+          <p>
+            <img src={recipe.image} alt={recipe.name} />
+          </p>
+          <p>Difficulty: {recipe.difficulty}</p>
+        </section>
+      </Link>
     </>
   );
 }
