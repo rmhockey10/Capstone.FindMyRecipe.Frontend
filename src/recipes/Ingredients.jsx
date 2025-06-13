@@ -37,16 +37,3 @@ function IngredientListItem({ ingredient, isChecked, onChange }) {
     </li>
   );
 }
-
-// const dummyData = [
-//   { id: 1, name: "Apple" },
-//   { id: 2, name: "Banana" },
-//   { id: 3, name: "Carrot" },
-//   { id: 4, name: "Salmon" },
-//   { id: 5, name: "Bread" },
-//   { id: 6, name: "Cheese" },
-//   { id: 7, name: "Steak" },
-//   { id: 8, name: "Broccoli" },
-//   { id: 9, name: "Rice" },
-//   { id: 10, name: "Yogurt" },
-// ];

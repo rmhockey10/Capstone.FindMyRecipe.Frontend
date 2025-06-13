@@ -8,11 +8,15 @@ export default function Navbar() {
     return (
       <header>
         <nav>
-          <NavLink to="/">Find My Recipe</NavLink>
-          <NavLink to="/account">Account</NavLink>
-          <NavLink to="/login" onClick={logout}>
-            Logout
-          </NavLink>
+          <div className="nav-left">
+            <NavLink to="/">Find My Recipe</NavLink>
+          </div>
+          <div className="nav-right">
+            <NavLink to="/account">Account</NavLink>
+            <NavLink to="/login" onClick={logout}>
+              Logout
+            </NavLink>
+          </div>
         </nav>
       </header>
     );
@@ -20,10 +24,14 @@ export default function Navbar() {
     return (
       <header>
         <nav>
-          <NavLink to="/">Find My Recipe</NavLink>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/recipes">Recipes(betaLink)</NavLink>
+          <div className="nav-left">
+            <NavLink to="/">Find My Recipe</NavLink>
+          </div>
+          <div className="nav-right">
+            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/recipes">Recipes(betaLink)</NavLink>
+          </div>
         </nav>
       </header>
     );

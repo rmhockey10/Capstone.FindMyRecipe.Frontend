@@ -21,29 +21,29 @@ export default function YourIngredients() {
       (ingredient) => ingredient.name
     );
     const bodyForRecipes = { ingredients: ingredientNameArray };
-    console.log(bodyForRecipes);
     const recipes = await get(bodyForRecipes);
     if (recipes) {
       setRecipes(data);
     }
-
     navigate("/recipes");
   };
 
   return (
-    <section className="YourIngredients">
+    <section className="ListOfYourIngredients">
       <h3>Your Ingredients</h3>
       {yourIngredients.length === 0 ? (
         <>
           <p>No Ingredients selected</p>
-          <button>Search</button>
         </>
       ) : (
         <>
           <ul className="ingredient-list">
-            {yourIngredients.map((ingredient) => (
-              <IngredientItem key={ingredient.id} ingredient={ingredient} />
-            ))}
+            {yourIngredients
+              .slice()
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((ingredient) => (
+                <IngredientItem key={ingredient.id} ingredient={ingredient} />
+              ))}
           </ul>
           <button onClick={getRecipes}>Find Recipes</button>
         </>
