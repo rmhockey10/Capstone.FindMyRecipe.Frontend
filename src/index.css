@@ -22,13 +22,13 @@ p {
 nav {
   background-color: rgb(236, 160, 18);
   height: 4rem;
-  display: flex; /* enables Flexbox */
-  align-items: center; /* vertically centers the items */
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   font-weight: bold;
 }
-.nav-left{
-  font-size:x-large;
+.nav-left {
+  font-size: x-large;
   text-decoration: underline;
 }
 
@@ -39,22 +39,28 @@ a {
 }
 
 article {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 10rem 1fr;
+  /* grid-template-rows: 4rem 1fr; */
   margin-top: 4rem;
   margin-left: 4rem;
 }
 
 .Ingredients {
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
+  display: grid; */
+  grid-template-columns: 4rem 4rem;
   border: 1px solid black;
   margin-right: 1rem;
   /* width:40rem; */
   /* grid-auto-rows: auto; */
 }
 
-.YourIngredients {
+.ListOfYourIngredients {
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .ingredient-item {

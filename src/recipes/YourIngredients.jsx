@@ -29,19 +29,21 @@ export default function YourIngredients() {
   };
 
   return (
-    <section className="YourIngredients">
+    <section className="ListOfYourIngredients">
       <h3>Your Ingredients</h3>
       {yourIngredients.length === 0 ? (
         <>
           <p>No Ingredients selected</p>
-          <button>Search</button>
         </>
       ) : (
         <>
           <ul className="ingredient-list">
-            {yourIngredients.map((ingredient) => (
-              <IngredientItem key={ingredient.id} ingredient={ingredient} />
-            ))}
+            {yourIngredients
+              .slice() // create a shallow copy to avoid mutating state
+              .sort((a, b) => a.name.localeCompare(b.name)) // sort alphabetically by name
+              .map((ingredient) => (
+                <IngredientItem key={ingredient.id} ingredient={ingredient} />
+              ))}
           </ul>
           <button onClick={getRecipes}>Find Recipes</button>
         </>
