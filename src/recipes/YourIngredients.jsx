@@ -14,7 +14,7 @@ export default function YourIngredients() {
       setRecipes(data);
       navigate("/recipes");
     }
-  }, [data]);
+  }, [data, navigate, setRecipes]);
 
   const getRecipes = async () => {
     const ingredientNameArray = yourIngredients.map(
