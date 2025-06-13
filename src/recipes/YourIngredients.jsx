@@ -21,12 +21,10 @@ export default function YourIngredients() {
       (ingredient) => ingredient.name
     );
     const bodyForRecipes = { ingredients: ingredientNameArray };
-    console.log(bodyForRecipes);
     const recipes = await get(bodyForRecipes);
     if (recipes) {
       setRecipes(data);
     }
-
     navigate("/recipes");
   };
 

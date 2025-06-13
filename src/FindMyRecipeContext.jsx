@@ -37,5 +37,3 @@ export function useRecipes() {
     throw Error("useRecipes must be used within a CartContext Provider");
   return context;
 }
-
-const dummyRecipes = [];
