@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+main {
+  /* background-image: url("/images/fridge.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  min-height: 100vh; */
+}
+
 h2 {
   margin-bottom: 1rem;
   margin-left: 1rem;
@@ -41,18 +49,13 @@ a {
 article {
   display: grid;
   grid-template-columns: 1fr 10rem 1fr;
-  /* grid-template-rows: 4rem 1fr; */
   margin-top: 4rem;
   margin-left: 4rem;
 }
 
 .Ingredients {
-  display: grid; */
-  grid-template-columns: 4rem 4rem;
   border: 1px solid black;
   margin-right: 1rem;
-  /* width:40rem; */
-  /* grid-auto-rows: auto; */
 }
 
 .ListOfYourIngredients {
@@ -77,4 +80,28 @@ article {
 ul {
   display: grid;
   grid-template-columns: 8rem 8rem 8rem 8rem 8rem;
+}
+
+.RegisterLogin {
+  margin: 5rem 20rem;
+  padding: 2rem;
+  background-color: rgb(116, 187, 223);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.RegisterLoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.RegisterLoginButton {
+  width: 6rem;
+}
+
+label {
+  margin: 0.5rem;
 }

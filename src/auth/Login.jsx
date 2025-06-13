@@ -23,20 +23,22 @@ export default function Login() {
 
   return (
     <>
-      <h1>Log in to your account</h1>
-      <form action={onLogin}>
-        <label>
-          Username
-          <input type="username" name="username" required />
-        </label>
-        <label>
-          Password
-          <input type="password" name="password" required />
-        </label>
-        <button>Login</button>
-        {error && <output>{error}</output>}
-      </form>
-      <Link to="/register">Need an account? Register here.</Link>
+      <section className="RegisterLogin">
+        <h1>Log in to your account</h1>
+        <form className="RegisterLoginForm" action={onLogin}>
+          <label>
+            Username
+            <input type="username" name="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button className="RegisterLoginButton">Login</button>
+          {error && <output>{error}</output>}
+        </form>
+        <Link to="/register">Need an account? Register here.</Link>
+      </section>
     </>
   );
 }

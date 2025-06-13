@@ -39,8 +39,8 @@ export default function YourIngredients() {
         <>
           <ul className="ingredient-list">
             {yourIngredients
-              .slice() // create a shallow copy to avoid mutating state
-              .sort((a, b) => a.name.localeCompare(b.name)) // sort alphabetically by name
+              .slice()
+              .sort((a, b) => a.name.localeCompare(b.name))
               .map((ingredient) => (
                 <IngredientItem key={ingredient.id} ingredient={ingredient} />
               ))}
