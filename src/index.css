@@ -21,7 +21,15 @@ p {
 
 nav {
   background-color: rgb(236, 160, 18);
-  height: 2rem;
+  height: 4rem;
+  display: flex; /* enables Flexbox */
+  align-items: center; /* vertically centers the items */
+  justify-content: space-between;
+  font-weight: bold;
+}
+.nav-left{
+  font-size:x-large;
+  text-decoration: underline;
 }
 
 a {
@@ -50,6 +58,7 @@ article {
 }
 
 .ingredient-item {
+  font-family: Georgia, "Times New Roman", Times, serif;
   list-style-type: none;
   margin: 1rem;
 }
@@ -61,5 +70,5 @@ article {
 
 ul {
   display: grid;
-  grid-template-columns: 8rem 8rem 8rem 8rem;
+  grid-template-columns: 8rem 8rem 8rem 8rem 8rem;
 }
