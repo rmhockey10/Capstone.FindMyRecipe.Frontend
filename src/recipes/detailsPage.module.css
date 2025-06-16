@@ -1,0 +1,33 @@
+.topSection {
+  margin-bottom: 2.5rem;
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
+  justify-content: space-between;
+  /*align-items: center;*/
+  padding: 1.5rem 3rem;
+}
+.image {
+  width: 13rem;
+  aspect-ratio: 1;
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+.firstSteps {
+  display: flex;
+}
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+}
+.ingredients {
+  width: 50%;
+  padding: 1rem 3rem;
+}
+.directions {
+  width: 50%;
+  padding: 1rem 3rem;
+}

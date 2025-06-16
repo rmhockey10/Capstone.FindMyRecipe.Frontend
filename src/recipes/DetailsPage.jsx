@@ -1,5 +1,9 @@
 import Recipes from "./Recipes";
-const dummyData = {
+import { useEffect, useState } from "react";
+import { useApi } from "../api/ApiContext";
+import { useParams } from "react-router";
+import styles from "./detailsPage.module.css";
+/*const dummyData = {
   Title: " Crab Rangoon Casserole",
   PrepTime: "30min",
   CookTime: "45min",
@@ -9,11 +13,33 @@ const dummyData = {
   Serving: "4",
   Difficulty: "Easy",
   CaloriesPerServing: "400",
-};
+};*/
 // no curly braces on the imports / for componants
 export default function DetailsPage() {
+  const params = useParams();
+  const { request } = useApi();
+  const [recipe, setRecipe] = useState(null);
+  useEffect(() => {
+    const getRecipe = async () => {
+      try {
+        const res = await request(`/recipes/${params.Id}`);
+        console.log(res);
+        setRecipe(res);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRecipe();
+  }, []);
   const RenderIngredents = () => {
-    return dummyData.Ingredients.map((Ing) => {
+    if (!recipe?.ingredients?.length) {
+      return (
+        <div>
+          <p>No ingredients found</p>
+        </div>
+      );
+    }
+    return recipe.ingredients.map((Ing) => {
       return (
         <div key={Ing}>
           <p>- {Ing}</p>
@@ -22,7 +48,19 @@ export default function DetailsPage() {
     });
   };
   const RenderDirections = () => {
-    return dummyData.directions.map((Dir, index) => {
+    if (
+      !recipe?.instructions?.length
+      //||
+      //typeof recipe.instructions === "string"
+    ) {
+      return (
+        <div>
+          <p>No instructions found</p>
+        </div>
+      );
+    }
+    // remove json.parse when devin fixes backend / ()
+    return recipe.instructions.map((Dir, index) => {
       return (
         <div key={Dir}>
           <p> step {index + 1}</p>
@@ -33,30 +71,39 @@ export default function DetailsPage() {
   };
   return (
     <div>
-      <h1> {dummyData.Title}</h1>
-      <div>
+      <section className={styles.topSection}>
         <section>
-          <p>PrepTime: {dummyData.PrepTime}</p>
-          <p>CookTime: {dummyData.CookTime}</p>
+          <h1 className={styles.title}> {recipe?.name}</h1>
+
+          <div className={styles.firstSteps}>
+            <section>
+              <p>PrepTime: {recipe?.prep_time_minutes}</p>
+              <p>CookTime: {recipe?.cook_time_minutes}</p>
+            </section>
+            <section>
+              <p>Cusine: {recipe?.cusine}</p>
+              <p>Serving: {recipe?.servings} </p>
+            </section>
+            <section>
+              <p> Difficulty: {recipe?.difficulty}</p>
+              <p> CaloriesPerServing: {recipe?.calories_per_serving}</p>
+            </section>
+          </div>
         </section>
         <section>
-          <p>Cusine: {dummyData.Cusine}</p>
-          <p>Serving: {dummyData.Serving} </p>
+          <img className={styles.image} src={recipe?.image} />
         </section>
-        <section>
-          <p> Difficulty: {dummyData.Difficulty}</p>
-          <p> CaloriesPerServing: {dummyData.CaloriesPerServing}</p>
-        </section>
-      </div>
-      <div>
-        <h2>Ingredents</h2>
-        {RenderIngredents()}
-      </div>
-      <div>
-        <h2>Directions</h2>
-        {RenderDirections()}
-      </div>
-      <Recipes />
+      </section>
+      <section className={styles.bottomSection}>
+        <div className={styles.ingredients}>
+          <h2>Ingredents</h2>
+          {RenderIngredents()}
+        </div>
+        <div className={styles.directions}>
+          <h2>Directions</h2>
+          {RenderDirections()}
+        </div>
+      </section>
     </div>
   );
 }
