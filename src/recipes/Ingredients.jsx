@@ -7,7 +7,7 @@ export default function Ingredients() {
     loading,
     error,
   } = useQuery("/ingredients", "ingredients");
-  const { yourIngredients, addToYourIngredients } = useRecipes();
+  const { yourIngredients, toggleYourIngredients } = useRecipes();
 
   if (loading || !ingredients) return <p>Loading...</p>;
   if (error) return <p>Sorry!!! {error}</p>;
@@ -19,7 +19,7 @@ export default function Ingredients() {
           key={ingredient.id}
           ingredient={ingredient}
           isChecked={yourIngredients.some((item) => item.id === ingredient.id)}
-          onChange={() => addToYourIngredients(ingredient)}
+          onChange={() => toggleYourIngredients(ingredient)}
         />
       ))}
     </ul>
