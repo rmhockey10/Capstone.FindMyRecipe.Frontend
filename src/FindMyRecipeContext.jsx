@@ -8,7 +8,7 @@ export function CartProvider({ children }) {
   const [yourIngredients, setYourIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
 
-  const addToYourIngredients = (ingredient) => {
+  const toggleYourIngredients = (ingredient) => {
     const exists = yourIngredients.some((item) => item.id === ingredient.id);
 
     if (exists) {
@@ -23,7 +23,7 @@ export function CartProvider({ children }) {
   const value = {
     yourIngredients,
     setYourIngredients,
-    addToYourIngredients,
+    toggleYourIngredients,
     recipes,
     setRecipes,
   };
