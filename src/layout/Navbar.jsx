@@ -1,7 +1,10 @@
 import { NavLink } from "react-router";
 import { useAuth } from "../auth/AuthContext";
+import { useRecipes } from "../FindMyRecipeContext";
 
 export default function Navbar() {
+  const { setYourIngredients } = useRecipes();
+
   const { token, logout } = useAuth();
 
   if (token) {
@@ -9,7 +12,9 @@ export default function Navbar() {
       <header>
         <nav>
           <div className="nav-left">
-            <NavLink to="/">Find My Recipe</NavLink>
+            <NavLink to="/" onClick={() => setYourIngredients([])}>
+              Find My Recipe
+            </NavLink>
           </div>
           <div className="nav-right">
             <NavLink to="/account">Account</NavLink>
@@ -25,7 +30,9 @@ export default function Navbar() {
       <header>
         <nav>
           <div className="nav-left">
-            <NavLink to="/">Find My Recipe</NavLink>
+            <NavLink to="/" onClick={() => setYourIngredients([])}>
+              Find My Recipe
+            </NavLink>
           </div>
           <div className="nav-right">
             <NavLink to="/register">Register</NavLink>
