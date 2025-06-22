@@ -54,12 +54,21 @@ article {
 }
 
 .Ingredients {
-  border: 1px solid black;
+  border: 1px solid orange;
   margin-right: 1rem;
+  background-color: lightgray;
+  text-align: center;
+  scrollbar-width: none;
+  overflow: scroll;
+  width: 75vw;
+}
+
+.Ingredients::-webkit-scrollbar {
+  display: none;
 }
 
 .ListOfYourIngredients {
-  border: 1px solid black;
+  border: 2px solid orange;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,11 +83,24 @@ article {
   font-family: Georgia, "Times New Roman", Times, serif;
   list-style-type: none;
   margin: 1rem;
+  display: flex;
+  width: 90%;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: scroll;
+  height: 2.5rem;
+
+  scrollbar-width: none;
+}
+.ingredient-item::-webkit-scrollbar {
+  display: none;
 }
 
 .ingredient-list {
   display: grid;
   grid-template-columns: 8rem;
+}
+.ingredient-list-responsive {
 }
 
 ul {
@@ -89,7 +111,7 @@ ul {
 .RegisterLogin {
   margin: 5rem 20rem;
   padding: 2rem;
-  background-color: rgb(116, 187, 223);
+  background-color: orange;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,4 +130,22 @@ ul {
 
 label {
   margin: 0.5rem;
+}
+.Recipes {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2.5vw;
+}
+.IndivdualRecipe-img {
+  height: 20rem;
+
+  max-width: 95vw;
+  aspect-ratio: 1;
+}
+.Recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  border: 2px solid orange;
+  justify-content: center;
 }

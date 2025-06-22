@@ -5,13 +5,13 @@ export default function Recipes() {
   const { recipes } = useRecipes();
   return (
     <>
-      <article className="Recipes">
-        <h2>Your Recipe Results</h2>
-        <p>Click on a recipe to get details</p>
-        {recipes?.map((recipe) => (
-          <IndividualRecipe key={recipe.id} recipe={recipe} />
-        ))}
-      </article>
+      <div className="Recipes">
+        <div className="Recipes-list">
+          {recipes?.map((recipe) => (
+            <IndividualRecipe key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
+      </div>
     </>
   );
 }
