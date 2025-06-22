@@ -1,0 +1,30 @@
+.listResponsive {
+  height: 60vh;
+  overflow: scroll;
+  text-align: left;
+  scrollbar-width: none;
+  padding: 0 2.5vw;
+  border-top: 1px solid orange;
+  margin-top: 1rem;
+}
+.listResponsive::-webkit-scrollbar {
+  display: none;
+}
+
+.check {
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid black;
+  margin-right: 0.25rem;
+}
+.check:checked {
+  background-color: green;
+  outline: none;
+}
+
+.h2 {
+  font-size: 3rem;
+  color: rgb(128, 235, 128);
+  text-align: center;
+}

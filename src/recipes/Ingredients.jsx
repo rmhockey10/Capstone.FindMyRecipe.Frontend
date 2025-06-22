@@ -1,5 +1,6 @@
 import useQuery from "../api/useQuery";
 import { useRecipes } from "../FindMyRecipeContext";
+import style from "./ingredients.module.css";
 
 export default function Ingredients() {
   const {
@@ -13,7 +14,7 @@ export default function Ingredients() {
   if (error) return <p>Sorry!!! {error}</p>;
 
   return (
-    <ul>
+    <ul className={style.listResponsive}>
       {ingredients.map((ingredient) => (
         <IngredientListItem
           key={ingredient.id}
@@ -31,7 +32,12 @@ function IngredientListItem({ ingredient, isChecked, onChange }) {
   return (
     <li className="ingredient-item">
       <label>
-        <input type="checkbox" checked={isChecked} onChange={onChange} />
+        <input
+          className={style.checked}
+          type="checkbox"
+          checked={isChecked}
+          onChange={onChange}
+        />
         {ingredient.name}
       </label>
     </li>

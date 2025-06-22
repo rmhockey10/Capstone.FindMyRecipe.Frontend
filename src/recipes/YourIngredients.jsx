@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRecipes } from "../FindMyRecipeContext.jsx";
 import IngredientItem from "./IngredientItem.jsx";
 import useMutation from "../api/useMutation.jsx";
+import style from "./Youringredients.module.css";
 
 export default function YourIngredients() {
   let navigate = useNavigate();
@@ -37,7 +38,9 @@ export default function YourIngredients() {
         </>
       ) : (
         <>
-          <ul className="ingredient-list">
+          <ul
+            className={`ingredient-list ingredient-list-reponsive ${style.listResponsive}`}
+          >
             {yourIngredients
               .slice()
               .sort((a, b) => a.name.localeCompare(b.name))
@@ -45,7 +48,9 @@ export default function YourIngredients() {
                 <IngredientItem key={ingredient.id} ingredient={ingredient} />
               ))}
           </ul>
-          <button onClick={getRecipes}>Find Recipes</button>
+          <button className={style.listResponsive} onClick={getRecipes}>
+            Find Recipes
+          </button>
         </>
       )}
     </section>
