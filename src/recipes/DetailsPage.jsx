@@ -60,7 +60,7 @@ export default function DetailsPage() {
         </div>
       );
     }
-    // remove json.parse when devin fixes backend / ()
+
     return recipe.instructions.map((Dir, index) => {
       return (
         <div key={Dir} className={styles.directionsContainer}>
@@ -84,7 +84,7 @@ export default function DetailsPage() {
               <p>CookTime: {recipe?.cook_time_minutes}</p>
             </section>
             <section>
-              <p>Cusine: {recipe?.cusine}</p>
+              <p>Cuisine: {recipe?.cuisine}</p>
               <p>Serving: {recipe?.servings} </p>
             </section>
             <section>
