@@ -40,7 +40,7 @@ npm start
     npm install
     ```
 
-3.  **Familiarize yourself with the folders:**
+3.  **Project structure :**
     src/
 ├── api/
 ├── auth/
