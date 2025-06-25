@@ -1,26 +1,17 @@
-// import IndividualRecipe from "./IndividualRecipe";
-// import { useRecipes } from "../FindMyRecipeContext";
-
-// export default function Recipes() {
-//   const { recipes, yourIngredients } = useRecipes();
-
-//   return (
-//     <>
-//       <article className="Recipes">
-//         <h2>Your Recipe Results</h2>
-//         <p>Click on a recipe to get details</p>
-//         {recipes?.map((recipe) => (
-//           <IndividualRecipe key={recipe.id} recipe={recipe} />
-//         ))}
-//       </article>
-//     </>
-//   );
-// }
-
 import IndividualRecipe from "./IndividualRecipe";
 import { useRecipes } from "../FindMyRecipeContext";
 
 export default function Recipes() {
+  // const { recipes } = useRecipes();
+
+
+
+
+
+// import IndividualRecipe from "./IndividualRecipe";
+// import { useRecipes } from "../FindMyRecipeContext";
+
+// export default function Recipes() {
   const { recipes, yourIngredients } = useRecipes();
 
   // Extract names from objects and normalize
@@ -47,13 +38,24 @@ const sortedRecipes = recipes
   })
   .sort((a, b) => b.matchScore - a.matchScore);
 
+//   return (
+//     <article className="Recipes">
+//       {sortedRecipes?.map((recipe) => (
+//         <IndividualRecipe key={recipe.id} recipe={recipe} />
+//       ))}
+//     </article>
+//   );
+// }
+
   return (
-    <article className="Recipes">
-      <h2>Your Recipe Results</h2>
-      <p>Click on a recipe to get details</p>
-      {sortedRecipes?.map((recipe) => (
-        <IndividualRecipe key={recipe.id} recipe={recipe} />
-      ))}
-    </article>
+    <>
+      <div className="Recipes">
+        <div className="Recipes-list">
+          {sortedRecipes?.map((recipe) => (
+            <IndividualRecipe key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
