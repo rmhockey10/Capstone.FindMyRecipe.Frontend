@@ -11,6 +11,10 @@ export default function IndividualRecipe({ recipe }) {
             src={recipe.image}
             alt={recipe.name}
           />
+          <p>
+            You have {recipe.matchPercentage}% of the ingredients to make this
+            recipe.
+          </p>
           <p>Difficulty: {recipe.difficulty}</p>
         </section>
       </Link>

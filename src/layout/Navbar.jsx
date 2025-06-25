@@ -37,7 +37,7 @@ export default function Navbar() {
           <div className="nav-right">
             <NavLink to="/register">Register</NavLink>
             <NavLink to="/login">Login</NavLink>
-            <NavLink to="/recipes">Recipes(betaLink)</NavLink>
+            <NavLink to="/recipes">Recipes</NavLink>
           </div>
         </nav>
       </header>
